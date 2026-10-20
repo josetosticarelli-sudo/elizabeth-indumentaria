@@ -1,0 +1,410 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="description" content="Ropa de mujer a pedido. Bodys, tops, vestidos y minis. Talle único. Pedidos por WhatsApp.">
+<meta property="og:title" content="Elizabeth Indumentaria">
+<meta property="og:description" content="Catálogo primavera–verano. Ropa de mujer a pedido, talle único. Pedidos por WhatsApp.">
+<meta name="theme-color" content="#7d1f3f">
+<style>html{color-scheme:light}:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}*{box-sizing:border-box}</style>
+<title>Elizabeth Indumentaria</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,500;0,6..96,700;1,6..96,500&family=Jost:wght@400;500;600&display=swap">
+<style>
+/* Layout: boutique catalog — wordmark header, filter strip, product grid, order bag that sends one WhatsApp message */
+:root{
+  --bg:#fbf6f7; --surface:#ffffff; --ink:#2a1820; --muted:#7a6168; --line:#ead9de;
+  --wine:#7d1f3f; --wine-ink:#ffffff; --blush:#f3dfe4; --wa:#1f8a4c;
+  --display:"Bodoni Moda", Didot, "Times New Roman", serif;
+  --body:"Jost", "Helvetica Neue", Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#1a1013; --surface:#24161b; --ink:#f5e9ec; --muted:#bfa3ab; --line:#3d2830;
+  --wine:#e0718f; --wine-ink:#1a1013; --blush:#3a2229; --wa:#3cc275; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#1a1013; --surface:#24161b; --ink:#f5e9ec; --muted:#bfa3ab; --line:#3d2830;
+  --wine:#e0718f; --wine-ink:#1a1013; --blush:#3a2229; --wa:#3cc275; color-scheme:dark}
+
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+
+header{border-bottom:1px solid var(--line)}
+header .wrap{padding-block:36px 28px;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:20px}
+.brand h1{font-family:var(--display);font-weight:500;font-size:clamp(2.2rem,6vw,3.6rem);line-height:1;margin:0;letter-spacing:-.01em}
+.brand h1 em{font-style:italic;color:var(--wine)}
+.brand p{margin:10px 0 0;color:var(--muted);font-size:.78rem;letter-spacing:.18em;text-transform:uppercase}
+.wa-top{display:flex;flex-direction:column;align-items:flex-end;gap:4px;font-size:.9rem}
+.wa-top span{color:var(--muted);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase}
+.wa-top a{color:var(--ink);font-weight:600;text-decoration:none;border-bottom:2px solid var(--wine)}
+
+.how{background:var(--blush)}
+.how .wrap{padding-block:18px;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px 28px;font-size:.92rem}
+.how b{display:block;font-family:var(--display);font-size:1.05rem;font-weight:700}
+
+.filters{display:flex;flex-wrap:wrap;gap:8px;padding-block:28px 8px}
+.filters button{font:500 .85rem var(--body);letter-spacing:.06em;text-transform:uppercase;padding:9px 16px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.filters button[aria-pressed="true"]{background:var(--wine);border-color:var(--wine);color:var(--wine-ink)}
+.filters button:focus-visible,.chip:focus-visible,.add:focus-visible,.bag button:focus-visible{outline:2px solid var(--wine);outline-offset:2px}
+
+.tools{display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px;padding-block:4px 0}
+.tools input{flex:1;min-width:0;max-width:420px;font:1rem var(--body);padding:10px 14px;border:1px solid var(--line);border-radius:2px;background:var(--surface);color:var(--ink)}
+.tools input:focus-visible{outline:2px solid var(--wine);outline-offset:1px}
+#count{color:var(--muted);font-size:.85rem;font-variant-numeric:tabular-nums}
+.countdown{background:var(--wine);color:var(--wine-ink)}
+.countdown .wrap{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px 32px;padding-block:14px}
+.cd-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase}
+.cd-head span{opacity:.8;letter-spacing:.04em;text-transform:none;font-size:.85rem}
+.cd-num{display:flex;gap:8px;margin-top:6px}
+.cd-num div{background:rgba(255,255,255,.14);border-radius:4px;padding:6px 0;min-width:58px;text-align:center}
+.cd-num b{display:block;font-size:1.6rem;line-height:1.1;font-variant-numeric:tabular-nums;font-weight:600}
+.cd-num small{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;opacity:.85}
+.tabs{border-bottom:1px solid var(--line);background:var(--bg);position:sticky;top:env(safe-area-inset-top,0px);z-index:4}
+.tabs .wrap{display:flex;gap:4px;overflow-x:auto;padding-block:0}
+.tabs a{flex:none;padding:14px 14px 12px;font-size:.88rem;font-weight:500;letter-spacing:.04em;text-transform:uppercase;color:var(--muted);text-decoration:none;border-bottom:3px solid transparent}
+.tabs a[aria-current="page"]{color:var(--ink);border-bottom-color:var(--wine)}
+.tabs a:focus-visible{outline:2px solid var(--wine);outline-offset:-2px}
+.policy .wrap{max-width:760px;padding-block:32px 160px}
+.policy h2{font-family:var(--display);font-weight:500;font-size:clamp(1.8rem,5vw,2.4rem);margin:0 0 10px;text-wrap:balance}
+.policy h3{font-family:var(--display);font-weight:700;font-size:1.15rem;margin:28px 0 6px}
+.policy p{margin:0;line-height:1.65}
+.policy .lead{color:var(--muted);font-size:1.05rem}
+.policy .note{margin-top:32px;padding:14px 16px;background:var(--blush);border-radius:4px}
+.timeline{list-style:none;padding:0;margin:24px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px}
+.timeline li{border:1px solid var(--line);border-top:4px solid var(--wine);background:var(--surface);padding:14px 16px;border-radius:4px;font-size:.9rem;color:var(--muted);display:flex;flex-direction:column;gap:2px}
+.timeline span{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;color:var(--wine);font-weight:600}
+.timeline b{color:var(--ink);font-size:1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:28px 22px;padding-block:20px 140px}
+.card{display:flex;flex-direction:column;gap:10px;min-width:0}
+.photo{aspect-ratio:4/5;max-width:100%;border-radius:4px;position:relative;overflow:hidden;display:flex;align-items:flex-end;padding:14px;transition:background .25s}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.stock{margin:0;font-size:.82rem;color:var(--muted)}
+.stock.low{color:var(--wine);font-weight:600}
+.one{font-size:.8rem;color:var(--muted)}
+.chip small{color:var(--muted);font-size:.72rem}
+.add:disabled{opacity:.4;cursor:not-allowed;background:transparent;color:var(--ink)}
+.photo small{background:rgba(255,255,255,.82);color:#2a1820;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;padding:4px 8px;border-radius:2px}
+.photo .cat{position:absolute;top:14px;left:14px;font-family:var(--display);font-style:italic;font-size:1rem;color:rgba(255,255,255,.92);text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.card h3{font-family:var(--display);font-weight:500;font-size:1.2rem;line-height:1.2;margin:0;text-wrap:balance}
+.card .desc{margin:0;color:var(--muted);font-size:.88rem}
+.price{font-variant-numeric:tabular-nums;font-weight:600;font-size:1.15rem}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:flex;align-items:center;gap:6px;font:.8rem var(--body);padding:5px 10px 5px 6px;border-radius:999px;border:1px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer}
+.chip i{width:14px;height:14px;border-radius:50%;border:1px solid rgba(0,0,0,.15);display:block}
+.chip[aria-pressed="true"]{border-color:var(--wine);box-shadow:inset 0 0 0 1px var(--wine)}
+.add{margin-top:auto;font:600 .85rem var(--body);letter-spacing:.08em;text-transform:uppercase;padding:12px;border:1px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;border-radius:2px}
+.add:hover{background:var(--ink);color:var(--bg)}
+
+.bag{position:fixed;left:0;right:0;bottom:0;background:var(--surface);border-top:1px solid var(--line);box-shadow:0 -6px 24px rgba(0,0,0,.08);z-index:5;padding-bottom:env(safe-area-inset-bottom,0px)}
+.bag .wrap{padding-block:12px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 16px}
+.bag .sum{flex:1;min-width:0;font-size:.9rem}
+.bag .sum strong{font-variant-numeric:tabular-nums;font-size:1.1rem}
+.bag ul{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:6px}
+.bag li{background:var(--blush);border-radius:999px;padding:3px 4px 3px 10px;font-size:.78rem;display:flex;align-items:center;gap:4px}
+.bag li button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:1rem;line-height:1;padding:0 4px}
+.send{background:var(--wa);color:#fff;text-decoration:none;font-weight:600;padding:12px 18px;border-radius:2px;white-space:nowrap}
+.send[aria-disabled="true"]{opacity:.45;pointer-events:none}
+
+footer{border-top:1px solid var(--line);color:var(--muted);font-size:.82rem}
+footer .wrap{padding-block:22px 160px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+/* Celular: diseño compacto */
+@media (max-width:600px){
+  header .wrap{padding-block:16px 12px;gap:8px;align-items:center}
+  .brand h1{font-size:1.75rem}
+  .brand p{font-size:.6rem;letter-spacing:.14em;margin-top:6px}
+  .wa-top{font-size:.8rem;gap:0}
+  .wa-top span{font-size:.58rem}
+  .countdown .wrap{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:10px;padding-block:10px}
+  .cd{min-width:0}
+  .cd-head{font-size:.58rem;letter-spacing:.08em;gap:0 6px}
+  .cd-head b{display:block;width:100%}
+  .cd-head span{font-size:.62rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+  .cd-num{gap:4px;margin-top:4px}
+  .cd-num div{min-width:0;flex:1;padding:4px 0}
+  .cd-num b{font-size:1.05rem}
+  .cd-num small{font-size:.48rem;letter-spacing:0;display:block;overflow:hidden}
+  .tabs .wrap{scrollbar-width:none}
+  .tabs .wrap::-webkit-scrollbar{display:none}
+  .tabs a{padding:10px 10px 8px;font-size:.7rem}
+  .how .wrap{grid-template-columns:repeat(3,1fr);gap:8px;padding-block:10px;font-size:0}
+  .how b{font-family:var(--body);font-size:.7rem;font-weight:600;line-height:1.25}
+  .filters{flex-wrap:nowrap;overflow-x:auto;padding-block:12px 4px;gap:6px;scrollbar-width:none}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:none;padding:6px 12px;font-size:.7rem}
+  .tools input{padding:8px 12px;font-size:.9rem}
+  #count{font-size:.75rem}
+  html,body{overflow-x:hidden}
+  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px 10px;padding-block:12px 150px}
+  .card{gap:5px}
+  .card h3{font-size:.92rem;line-height:1.2}
+  .card .desc{display:none}
+  .price{font-size:1rem}
+  .chips{gap:4px}
+  .chip{font-size:.66rem;padding:3px 7px 3px 4px;gap:4px}
+  .chip i{width:11px;height:11px}
+  .chip small{font-size:.6rem}
+  .stock{font-size:.68rem;line-height:1.3}
+  .one{font-size:.68rem}
+  .add{padding:8px 4px;font-size:.66rem;letter-spacing:.04em}
+  .bag .wrap{padding-block:8px;gap:6px 10px}
+  .bag .sum{font-size:.78rem}
+  .bag .sum strong{font-size:.95rem}
+  .bag ul{flex-wrap:nowrap;overflow-x:auto;margin-top:4px;scrollbar-width:none}
+  .bag li{flex:none;font-size:.68rem}
+  .send{flex:none;padding:8px 12px;font-size:.76rem;border-radius:4px}
+  .policy .wrap{padding-block:20px 140px}
+  .policy h2{font-size:1.6rem}
+  .policy h3{font-size:1rem;margin-top:20px}
+  .policy p{font-size:.92rem}
+  .timeline li{padding:10px 12px}
+  footer{font-size:.72rem}
+}
+@media (max-width:360px){
+  .grid{gap:14px 8px}
+  .card h3{font-size:.85rem}
+  .chip{font-size:.62rem}
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brand">
+      <h1>Elizabeth <em>Indumentaria</em></h1>
+      <p>Colección primavera–verano · Talle único</p>
+    </div>
+    <div class="wa-top">
+      <span>Pedidos por WhatsApp</span>
+      <a href="https://wa.me/5493464681343" target="_blank" rel="noopener">+54 9 3464 68-1343</a>
+    </div>
+  </div>
+</header>
+
+<section class="countdown" aria-label="Cuenta regresiva">
+  <div class="wrap">
+    <div class="cd">
+      <div class="cd-head"><b>Cierre de pedidos</b><span id="cd1-date"></span></div>
+      <div class="cd-num" id="cd1"></div>
+    </div>
+    <div class="cd">
+      <div class="cd-head"><b>Llegada de los pedidos</b><span id="cd2-date"></span></div>
+      <div class="cd-num" id="cd2"></div>
+    </div>
+  </div>
+</section>
+
+<nav class="tabs" aria-label="Secciones">
+  <div class="wrap">
+    <a href="#catalogo" data-tab="catalogo" aria-current="page">Catálogo</a>
+    <a href="#pedidos" data-tab="pedidos">Pedidos y entregas</a>
+    <a href="#cambios" data-tab="cambios">Cambios y devoluciones</a>
+  </div>
+</nav>
+
+<div id="tab-catalogo">
+<section class="how" aria-label="Cómo comprar">
+  <div class="wrap">
+    <div><b>1. Elegí</b>Tocá el color que querés y agregá la prenda a tu pedido.</div>
+    <div><b>2. Pedí por WhatsApp</b>Te llega un mensaje armado con todo lo que elegiste.</div>
+    <div><b>3. Confirmá con seña</b>Te avisamos cuando tu pedido está listo para entregar.</div>
+  </div>
+</section>
+
+<main class="wrap">
+  <nav class="filters" aria-label="Categorías" id="filters"></nav>
+  <div class="tools"><input id="q" type="search" placeholder="Buscar: body, vestido, encaje…" aria-label="Buscar prendas"><span id="count"></span></div>
+  <div class="grid" id="grid"></div>
+</main>
+</div>
+
+<div id="tab-pedidos" class="policy" hidden>
+  <div class="wrap">
+    <h2>Pedidos y entregas</h2>
+    <p class="lead">Trabajamos con un ciclo semanal: reunimos los pedidos de toda la semana y los encargamos juntos.</p>
+
+    <ol class="timeline" aria-label="Ejemplo de calendario">
+      <li><span id="tl1">Sábado</span><b>Cierre de pedidos</b>Último día para confirmar tu pedido con seña.</li>
+      <li><span id="tl2">Sábado</span><b>Pedido disponible</b>Desde este día podés retirarlo.</li>
+      <li><span id="tl3">Lunes</span><b>Envíos a domicilio</b>Desde este día coordinamos las entregas.</li>
+    </ol>
+
+    <h3>Cierre semanal</h3>
+    <p>Los pedidos se cierran todos los sábados. Cada pedido queda confirmado una vez abonada la seña. Los pedidos confirmados después del cierre pasan al ciclo de la semana siguiente.</p>
+
+    <h3>Plazo de entrega</h3>
+    <p>Los pedidos están disponibles el sábado siguiente al cierre, con una demora aproximada de una semana. Ante feriados, casos fortuitos o de fuerza mayor ajenos a nuestra voluntad, el plazo puede extenderse hasta 3 días adicionales. Si ocurre, te avisamos por WhatsApp.</p>
+
+    <h3>Retiro en domicilio</h3>
+    <p>Podés retirar tu pedido en nuestro domicilio a partir del sábado de llegada, coordinando previamente día y horario por WhatsApp según nuestra disponibilidad.</p>
+
+    <h3>Envío a domicilio</h3>
+    <p>También podemos alcanzarte el pedido a tu domicilio a partir del lunes siguiente al sábado de llegada. Cada envío se analiza según la zona; consultanos la disponibilidad y el costo por WhatsApp antes de confirmar.</p>
+
+    <p class="note">Consultas: WhatsApp <b>+54 9 3464 68-1343</b></p>
+  </div>
+</div>
+
+<div id="tab-cambios" class="policy" hidden>
+  <div class="wrap">
+    <h2>Cambios y devoluciones</h2>
+    <p class="lead">Todas nuestras prendas se encargan especialmente para cada clienta. Por eso trabajamos con las siguientes condiciones.</p>
+
+    <h3>Cambios</h3>
+    <p>No realizamos cambios por color, modelo ni gusto personal. Te recomendamos revisar bien la foto, el color y la descripción antes de confirmar tu pedido; ante cualquier duda, consultanos por WhatsApp.</p>
+
+    <h3>Devoluciones</h3>
+    <p>No aceptamos devoluciones de prendas en buen estado por motivos de gusto o elección, salvo en los casos que establece la ley.</p>
+
+    <h3>Señas</h3>
+    <p>La seña confirma tu pedido y nos permite encargarlo al proveedor. Si cancelás un pedido ya confirmado, la seña no se reintegra, sin perjuicio de los derechos que te reconoce la ley.</p>
+
+    <h3>Prendas con falla</h3>
+    <p>Si tu prenda llega con una falla de fabricación, avisanos por WhatsApp apenas la recibas, con fotos de la falla. La prenda debe estar sin uso, sin lavar y con sus etiquetas. La gestionamos conforme a la garantía legal.</p>
+
+
+    <p class="note">Consultas: WhatsApp <b>+54 9 3464 68-1343</b></p>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">Precios con transferencia o efectivo. Pedidos con cierre cada sábado. Las prendas son talle único. Stock por color controlado el 20/10/2026. Antes de confirmar tu pedido te confirmamos la disponibilidad.</div>
+</footer>
+
+<div class="bag" id="bag" aria-live="polite">
+  <div class="wrap">
+    <div class="sum">
+      <div id="bagText">Tu pedido está vacío.</div>
+      <ul id="bagList"></ul>
+    </div>
+    <a class="send" id="send" href="https://wa.me/5493464681343" target="_blank" rel="noopener" aria-disabled="true">Enviar pedido por WhatsApp</a>
+  </div>
+</div>
+
+<script>
+const WA = "5493464681343";
+const COLORS = {
+  "Negro":"#1d1a1b","Marrón":"#6b4330","Rosa":"#e8a9b8","Blanco":"#f4f1ee","Chocolate":"#4a2c22",
+  "Tostado":"#c49a72","Azul noche":"#1f2a48","Beige":"#dcc8ad","Natural":"#e9dfcf",
+  "Print oscuro":"#3a2f3a","Plata":"#b9b8bd","Plateado":"#b9b8bd","Oliva":"#6f7448","Gris":"#8d8a8c","Verde":"#4f6b4c","Azul":"#2f4f8a","Marino":"#1f2a48","Azul marino":"#1f2a48","Uva":"#5a2a4a","Bordo":"#6d1f2c","Óxido":"#9a4a2a","Fucsia":"#c2307a","Militar":"#5b5a3c","Dorado":"#c9a24a","Magenta":"#a8327a","Off white":"#efe9df","Plata claro":"#cfcfd3","Plata oscuro":"#77767c","Único":"#a88a92","Print claro":"#d9cbd4","Flor verde":"#5d7a5a","Flor negro":"#2e2a2c","Cebra":"#8c8a87"
+};
+// Precios de venta: costo mayorista con transferencia + 80%, redondeado a $500
+const PRODUCTS = [{"cat": "Bodys", "name": "Body de encaje con nudo", "desc": "Encaje forrado, nudo al frente.", "price": 20000, "colors": ["Negro", "Marrón", "Rosa", "Blanco"], "v": {"Negro": {"s": 13, "img": "fotos2/body-nudito-encaje-kioto-forra-negro.jpg"}, "Marrón": {"s": 16, "img": "fotos2/body-nudito-encaje-kioto-forra-marron.jpg"}, "Rosa": {"s": 12, "img": "fotos2/body-nudito-encaje-kioto-forra-rosa.jpg"}, "Blanco": {"s": 12, "img": "fotos2/body-nudito-encaje-kioto-forra-blanco.jpg"}}}, {"cat": "Bodys", "name": "Body flor japonesa", "desc": "Estampa floral oriental, nudo al frente.", "price": 22500, "colors": ["Chocolate", "Tostado"], "v": {"Chocolate": {"s": 11, "img": "fotos2/body-nudito-flor-japonesa-saku-chocolate.jpg"}, "Tostado": {"s": 9, "img": "fotos2/body-nudito-flor-japonesa-saku-tostado.jpg"}}}, {"cat": "Bodys", "name": "Body lunares", "desc": "Clásico de lunares, calce al cuerpo.", "price": 22500, "colors": ["Negro", "Blanco"], "v": {"Negro": {"s": 9, "img": "fotos2/body-maia-lunares-12g9c-negro.jpg"}, "Blanco": {"s": 8, "img": "fotos2/body-maia-lunares-12g9c-blanco.jpg"}}}, {"cat": "Bodys", "name": "Body tul flor asiática", "desc": "Tul estampado, liviano y entallado.", "price": 22500, "colors": ["Azul noche", "Chocolate"], "v": {"Azul noche": {"s": 18, "img": "fotos2/body-maia-flor-asiatica-tul-es-azulnoche.jpg"}, "Chocolate": {"s": 7, "img": "fotos2/body-maia-flor-asiatica-tul-es-chocolate.jpg"}}}, {"cat": "Bodys", "name": "Body de encaje forrado", "desc": "Encaje con forro, escote clásico.", "price": 20000, "colors": ["Negro", "Marrón", "Rosa", "Blanco"], "v": {"Negro": {"s": 12, "img": "fotos2/body-sofia-encaje-forrado-od9u-negro.jpg"}, "Marrón": {"s": 5, "img": "fotos2/body-sofia-encaje-forrado-od9u-marron.jpg"}, "Rosa": {"s": 11, "img": "fotos2/body-sofia-encaje-forrado-od9u-rosa.jpg"}, "Blanco": {"s": 8, "img": "fotos2/body-sofia-encaje-forrado-od9u-blanco.jpg"}}}, {"cat": "Bodys", "name": "Body básico de encaje", "desc": "Encaje, calce al cuerpo.", "price": 20000, "colors": ["Negro", "Marrón", "Blanco", "Rosa"], "v": {"Negro": {"s": 22, "img": "fotos2/body-maia-encaje-m9nky-negro.jpg"}, "Marrón": {"s": 25, "img": "fotos2/body-maia-encaje-m9nky-marron.jpg"}, "Blanco": {"s": 20, "img": "fotos2/body-maia-encaje-m9nky-blanco.jpg"}, "Rosa": {"s": 13, "img": "fotos2/body-maia-encaje-m9nky-rosa.jpg"}}}, {"cat": "Bodys", "name": "Body trikini con aplique", "desc": "Tela foil con aplique.", "price": 20000, "colors": ["Negro", "Plata"], "v": {"Negro": {"s": 10, "img": "fotos2/body-trikini-foild-con-aplique-negro.jpg"}, "Plata": {"s": 9, "img": "fotos2/body-trikini-foild-con-aplique-plata.jpg"}}}, {"cat": "Bodys", "name": "Body cruzado de encaje con voladitos", "desc": "Encaje con volados.", "price": 20000, "colors": ["Marrón", "Negro"], "v": {"Marrón": {"s": 15, "img": "fotos2/body-cruzado-jazmin-encaje-con-marron.jpg"}, "Negro": {"s": 22, "img": "fotos2/body-cruzado-jazmin-encaje-con-negro.jpg"}}}, {"cat": "Bodys", "name": "Body manga murciélago", "desc": "Lycra flock.", "price": 20000, "colors": ["Chocolate"], "v": {"Chocolate": {"s": 11, "img": "fotos2/body-manga-murcielago-lycra-fl-chocolate.jpg"}}}, {"cat": "Bodys", "name": "Body escote V flock glitter", "desc": "Flock con glitter.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 16, "img": "fotos2/body-escote-tul-flock-glitter--unico.jpg"}}}, {"cat": "Bodys", "name": "Body escote V tul con strass", "desc": "Tul con strass.", "price": 18000, "colors": ["Único"], "v": {"Único": {"s": 15, "img": "fotos2/body-escote-v-tul-con-strass-r-unico.jpg"}}}, {"cat": "Bodys", "name": "Body cruzado flock", "desc": "Lycra flock.", "price": 18000, "colors": ["Negro", "Marrón"], "v": {"Negro": {"s": 29, "img": "fotos2/body-cruzado-lycra-flock-berjw-negro.jpg"}, "Marrón": {"s": 29, "img": "fotos2/body-cruzado-lycra-flock-berjw-marron.jpg"}}}, {"cat": "Bodys", "name": "Body escote V tul estrellas", "desc": "Tul estampado.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 16, "img": "fotos2/body-escote-v-tul-estrellas-c3-unico.jpg"}}}, {"cat": "Bodys", "name": "Body irregular flock glitter", "desc": "Flock con glitter.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 20, "img": "fotos2/body-irregular-flock-glitter-c-unico.jpg"}}}, {"cat": "Bodys", "name": "Body drapeado sin mangas", "desc": "Lycra glitter.", "price": 16000, "colors": ["Único"], "v": {"Único": {"s": 24, "img": "fotos2/body-drapeado-sin-mangas-lycra-unico.jpg"}}}, {"cat": "Bodys", "name": "Body aplique V con mangas de tul", "desc": "Venetian y tul estampado.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 21, "img": "fotos2/body-con-aplique-v-con-mangas--unico.jpg"}}}, {"cat": "Bodys", "name": "Body manga princesa", "desc": "Tul estampado.", "price": 22500, "colors": ["Uva", "Chocolate"], "v": {"Uva": {"s": 10, "img": "fotos2/body-manga-princesa-tul-estamp-uva.jpg"}, "Chocolate": {"s": 4, "img": "fotos2/body-manga-princesa-tul-estamp-chocolate.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera básica de encaje", "desc": "Encaje suave para todos los días.", "price": 15500, "colors": ["Negro", "Marrón", "Blanco", "Rosa"], "v": {"Negro": {"s": 9, "img": "fotos2/remera-basica-encaje-ktq0w-negro.jpg"}, "Marrón": {"s": 8, "img": "fotos2/remera-basica-encaje-ktq0w-marron.jpg"}, "Blanco": {"s": 19, "img": "fotos2/remera-basica-encaje-ktq0w-blanco.jpg"}, "Rosa": {"s": 12, "img": "fotos2/remera-basica-encaje-ktq0w-rosa.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera manga japonesa de encaje", "desc": "Manga amplia, encaje delicado.", "price": 15500, "colors": ["Negro", "Marrón", "Rosa", "Blanco"], "v": {"Negro": {"s": 14, "img": "fotos2/remera-manga-japonesa-encaje-8-negro.jpg"}, "Marrón": {"s": 9, "img": "fotos2/remera-manga-japonesa-encaje-8-marron.jpg"}, "Rosa": {"s": 13, "img": "fotos2/remera-manga-japonesa-encaje-8-rosa.jpg"}, "Blanco": {"s": 5, "img": "fotos2/remera-manga-japonesa-encaje-8-blanco.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera tul bordado con lentejuelas", "desc": "Manga princesa, ideal para salir.", "price": 21500, "colors": ["Negro", "Beige"], "v": {"Negro": {"s": 7, "img": "fotos2/remera-manga-princesa-tul-bord-negro.jpg"}, "Beige": {"s": 5, "img": "fotos2/remera-manga-princesa-tul-bord-beige.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera tul labrado", "desc": "Tul con textura.", "price": 20000, "colors": ["Chocolate", "Negro"], "v": {"Chocolate": {"s": 14, "img": "fotos2/remera-tul-labrado-hvtm1-chocolate.jpg"}, "Negro": {"s": 14, "img": "fotos2/remera-tul-labrado-hvtm1-negro.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera básica encaje rococó", "desc": "Encaje trabajado.", "price": 20000, "colors": ["Marrón", "Blanco", "Negro"], "v": {"Marrón": {"s": 13, "img": "fotos2/remera-basica-rococo-encaje-17-marron.jpg"}, "Blanco": {"s": 14, "img": "fotos2/remera-basica-rococo-encaje-17-blanco.jpg"}, "Negro": {"s": 22, "img": "fotos2/remera-basica-rococo-encaje-17-negro.jpg"}}}, {"cat": "Tops y remeras", "name": "Musculosa lino estampado", "desc": "Lino fresco.", "price": 14500, "colors": ["Negro", "Beige"], "v": {"Negro": {"s": 28, "img": "fotos2/musculosa-lino-estampado-1o76w-negro.jpg"}, "Beige": {"s": 13, "img": "fotos2/musculosa-lino-estampado-1o76w-beige.jpg"}}}, {"cat": "Tops y remeras", "name": "Top manga japonesa tul estampado", "desc": "Tul estampado.", "price": 15500, "colors": ["Oliva", "Gris"], "v": {"Oliva": {"s": 11, "img": "fotos2/top-manga-japonesa-tul-estampa-oliva.jpg"}, "Gris": {"s": 11, "img": "fotos2/top-manga-japonesa-tul-estampa-gris.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera tul bordado rombos", "desc": "Tul bordado.", "price": 21500, "colors": ["Plata", "Rosa", "Negro"], "v": {"Plata": {"s": 16, "img": "fotos2/remera-tul-bordado-rombos-1su2-plata.jpg"}, "Rosa": {"s": 16, "img": "fotos2/remera-tul-bordado-rombos-1su2-rosa.jpg"}, "Negro": {"s": 10, "img": "fotos2/remera-tul-bordado-rombos-1su2-negro.jpg"}}}, {"cat": "Tops y remeras", "name": "Top buche print", "desc": "Tul estampado.", "price": 14500, "colors": ["Print claro", "Print oscuro"], "v": {"Print claro": {"s": 14, "img": "fotos2/top-buche-print-tul-estampado--printclaro.jpg"}, "Print oscuro": {"s": 16, "img": "fotos2/top-buche-print-tul-estampado--printoscuro.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera básica lunares", "desc": "Tul estampado.", "price": 16000, "colors": ["Negro", "Blanco"], "v": {"Negro": {"s": 16, "img": "fotos2/remera-basica-dots-tul-estampa-negro.jpg"}, "Blanco": {"s": 10, "img": "fotos2/remera-basica-dots-tul-estampa-blanco.jpg"}}}, {"cat": "Tops y remeras", "name": "Musculosa buche lunares", "desc": "Tul estampado.", "price": 14500, "colors": ["Negro", "Blanco"], "v": {"Negro": {"s": 10, "img": "fotos2/musculosa-buche-lunares-tul-es-negro.jpg"}, "Blanco": {"s": 13, "img": "fotos2/musculosa-buche-lunares-tul-es-blanco.jpg"}}}, {"cat": "Tops y remeras", "name": "Top con aplique metalizado", "desc": "Tela foil.", "price": 15500, "colors": ["Plateado", "Negro"], "v": {"Plateado": {"s": 15, "img": "fotos2/top-con-aplique-foild-6fb2h-plateado.jpg"}, "Negro": {"s": 9, "img": "fotos2/top-con-aplique-foild-6fb2h-negro.jpg"}}}, {"cat": "Tops y remeras", "name": "Top picos de encaje", "desc": "Encaje.", "price": 15500, "colors": ["Único"], "v": {"Único": {"s": 13, "img": "fotos2/top-picos-encaje-1cn60-unico.jpg"}}}, {"cat": "Tops y remeras", "name": "Remera básica tul estampado", "desc": "Tul estampado.", "price": 18000, "colors": ["Óxido", "Bordo"], "v": {"Óxido": {"s": 13, "img": "fotos2/basica-tul-estampado-jxo3b-oxido.jpg"}, "Bordo": {"s": 14, "img": "fotos2/basica-tul-estampado-jxo3b-bordo.jpg"}}}, {"cat": "Vestidos", "name": "Vestido largo pétalos", "desc": "Largo al tobillo con detalle de pétalos.", "price": 29000, "colors": ["Rosa", "Negro"], "v": {"Rosa": {"s": 10, "img": "fotos2/vestido-largo-petalos-16scl-rosa.jpg"}, "Negro": {"s": 15, "img": "fotos2/vestido-largo-petalos-16scl-negro.jpg"}}}, {"cat": "Vestidos", "name": "Vestido drapeado de tul estampado", "desc": "Tul forrado con drapeado lateral.", "price": 29000, "colors": ["Print oscuro", "Print claro", "Cebra"], "v": {"Print oscuro": {"s": 16, "img": "fotos2/vestido-drapeado-print-tul-est-printoscuro.jpg"}, "Print claro": {"s": 20, "img": "fotos2/vestido-drapeado-print-tul-est-printclaro.jpg"}, "Cebra": {"s": 22, "img": "fotos2/vestido-drapeado-cebra-tul-est-unico.jpg"}}}, {"cat": "Vestidos", "name": "Vestido tramado con volados", "desc": "Escote marylin y volados.", "price": 21500, "colors": ["Natural", "Negro", "Chocolate"], "v": {"Natural": {"s": 12, "img": "fotos2/vestido-marylin-tramado-con-vo-natural.jpg"}, "Negro": {"s": 8, "img": "fotos2/vestido-marylin-tramado-con-vo-negro.jpg"}, "Chocolate": {"s": 18, "img": "fotos2/vestido-marylin-tramado-con-vo-chocolate.jpg"}}}, {"cat": "Vestidos", "name": "Vestido largo de tul estampado", "desc": "Escote marylin, largo y fresco.", "price": 34000, "colors": ["Flor verde", "Flor negro", "Cebra"], "v": {"Flor verde": {"s": 10, "img": "fotos2/vestido-marylin-largo-tul-esta-florverde.jpg"}, "Flor negro": {"s": 12, "img": "fotos2/vestido-marylin-largo-tul-esta-flornegro.jpg"}, "Cebra": {"s": 14, "img": "fotos2/vestido-marylin-largo-tul-esta-cebra.jpg"}}}, {"cat": "Vestidos", "name": "Vestido doble tajo", "desc": "Lycra.", "price": 25000, "colors": ["Negro", "Marrón", "Beige"], "v": {"Negro": {"s": 8, "img": "fotos2/vestido-doble-tajo-lycra-1orrp-negro.jpg"}, "Marrón": {"s": 10, "img": "fotos2/vestido-doble-tajo-lycra-1orrp-marron.jpg"}, "Beige": {"s": 9, "img": "fotos2/vestido-doble-tajo-lycra-1orrp-beige.jpg"}}}, {"cat": "Vestidos", "name": "Vestido fibrana con puntilla", "desc": "Fibrana estampada.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 9, "img": "fotos2/vestido-fibrana-print-con-punt-unico.jpg"}}}, {"cat": "Vestidos", "name": "Vestido espalda U de lino", "desc": "Lino estampado.", "price": 20000, "colors": ["Beige", "Negro"], "v": {"Beige": {"s": 8, "img": "fotos2/vestido-espalda-u-lino-estampa-beige.jpg"}, "Negro": {"s": 9, "img": "fotos2/vestido-espalda-u-lino-estampa-negro.jpg"}}}, {"cat": "Vestidos", "name": "Vestido lino estampado", "desc": "Lino fresco.", "price": 20000, "colors": ["Único"], "v": {"Único": {"s": 19, "img": "fotos2/vestido-marina-lino-estampado--unico.jpg"}}}, {"cat": "Vestidos", "name": "Vestido lencero con puntilla", "desc": "Lycra.", "price": 18000, "colors": ["Único"], "v": {"Único": {"s": 18, "img": "fotos2/vestido-lencero-con-puntilla-l-unico.jpg"}}}, {"cat": "Vestidos", "name": "Vestido manga irregular", "desc": "Tul estampado forrado.", "price": 29000, "colors": ["Beige", "Verde", "Gris"], "v": {"Beige": {"s": 16, "img": "fotos2/vestido-manga-irregular-tul-es-beige.jpg"}, "Verde": {"s": 8, "img": "fotos2/vestido-manga-irregular-tul-es-verde.jpg"}, "Gris": {"s": 5, "img": "fotos2/vestido-manga-irregular-tul-es-gris.jpg"}}}, {"cat": "Vestidos", "name": "Vestido strapless con volados", "desc": "Tela night shine.", "price": 25000, "colors": ["Negro", "Azul", "Marrón"], "v": {"Negro": {"s": 16, "img": "fotos2/vestido-strapless-con-volados--negro.jpg"}, "Azul": {"s": 12, "img": "fotos2/vestido-strapless-con-volados--azul.jpg"}, "Marrón": {"s": 12, "img": "fotos2/vestido-strapless-con-volados--marron.jpg"}}}, {"cat": "Vestidos", "name": "Vestido una manga", "desc": "Tul estampado con forro.", "price": 25000, "colors": ["Beige", "Chocolate"], "v": {"Beige": {"s": 19, "img": "fotos2/vestido-1-manga-oxford-tul-est-beige.jpg"}, "Chocolate": {"s": 10, "img": "fotos2/vestido-1-manga-oxford-tul-est-chocolate.jpg"}}}, {"cat": "Vestidos", "name": "Vestido manga murciélago", "desc": "Tul estampado.", "price": 29000, "colors": ["Verde", "Bordo"], "v": {"Verde": {"s": 8, "img": "fotos2/vestido-manga-murcielago-tul-e-verde.jpg"}, "Bordo": {"s": 4, "img": "fotos2/vestido-manga-murcielago-tul-e-bordo.jpg"}}}, {"cat": "Vestidos", "name": "Vestido largo floreado", "desc": "Tul estampado, escote marylin.", "price": 34000, "colors": ["Fucsia"], "v": {"Fucsia": {"s": 11, "img": "fotos2/vestido-marylin-largo-floreado-fucsia.jpg"}}}, {"cat": "Vestidos", "name": "Vestido cuello volcado", "desc": "Tul estampado.", "price": 29000, "colors": ["Uva"], "v": {"Uva": {"s": 8, "img": "fotos2/vestido-cuello-volcado-tul-est-uva.jpg"}}}, {"cat": "Vestidos", "name": "Vestido escote buche florcitas", "desc": "Tul estampado.", "price": 30500, "colors": ["Chocolate", "Bordo"], "v": {"Chocolate": {"s": 21, "img": "fotos2/vestido-escote-buche-florcitas-chocolate.jpg"}, "Bordo": {"s": 16, "img": "fotos2/vestido-escote-buche-florcitas-bordo.jpg"}}}, {"cat": "Vestidos", "name": "Vestido globo morley", "desc": "Morley estampado.", "price": 21500, "colors": ["Negro", "Beige", "Natural"], "v": {"Negro": {"s": 5, "img": "fotos2/vestido-globo-morley-estampado-negro.jpg"}, "Beige": {"s": 7, "img": "fotos2/vestido-globo-morley-estampado-beige.jpg"}, "Natural": {"s": 9, "img": "fotos2/vestido-globo-morley-estampado-natural.jpg"}}}, {"cat": "Vestidos", "name": "Vestido pico vintage", "desc": "Estilo vintage.", "price": 20000, "colors": ["Negro", "Natural"], "v": {"Negro": {"s": 10, "img": "fotos2/vestido-pico-vintage-1up36-negro.jpg"}, "Natural": {"s": 5, "img": "fotos2/vestido-pico-vintage-1up36-natural.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini cargo engomada", "desc": "Tela engomada.", "price": 13500, "colors": ["Fucsia", "Tostado", "Militar"], "v": {"Fucsia": {"s": 4, "img": "fotos2/mini-cargo-engomada-1skou-fucsia.jpg"}, "Tostado": {"s": 5, "img": "fotos2/mini-cargo-engomada-1skou-tostado.jpg"}, "Militar": {"s": 5, "img": "fotos2/mini-cargo-engomada-1skou-militar.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini tajo engomada", "desc": "Tela engomada.", "price": 13500, "colors": ["Azul", "Fucsia", "Militar", "Tostado"], "v": {"Azul": {"s": 5, "img": "fotos2/mini-tajo-engomado-99lyw-azul.jpg"}, "Fucsia": {"s": 5, "img": "fotos2/mini-tajo-engomado-99lyw-fucsia.jpg"}, "Militar": {"s": 5, "img": "fotos2/mini-tajo-engomado-99lyw-militar.jpg"}, "Tostado": {"s": 4, "img": "fotos2/mini-tajo-engomado-99lyw-tostado.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini bolsillos engomada", "desc": "Tela engomada.", "price": 13500, "colors": ["Tostado", "Azul", "Fucsia"], "v": {"Tostado": {"s": 4, "img": "fotos2/mini-bolsillos-engomada-19itc-tostado.jpg"}, "Azul": {"s": 5, "img": "fotos2/mini-bolsillos-engomada-19itc-azul.jpg"}, "Fucsia": {"s": 5, "img": "fotos2/mini-bolsillos-engomada-19itc-fucsia.jpg"}}}, {"cat": "Minis y shorts", "name": "Short pollera engomado", "desc": "Tela engomada.", "price": 13500, "colors": ["Azul", "Fucsia", "Militar", "Tostado"], "v": {"Azul": {"s": 4, "img": "fotos2/short-pollera-engomada-e46j1-azul.jpg"}, "Fucsia": {"s": 5, "img": "fotos2/short-pollera-engomada-e46j1-fucsia.jpg"}, "Militar": {"s": 4, "img": "fotos2/short-pollera-engomada-e46j1-militar.jpg"}, "Tostado": {"s": 4, "img": "fotos2/short-pollera-engomada-e46j1-tostado.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini frunce engomada", "desc": "Tela engomada.", "price": 16000, "colors": ["Negro brillo"], "v": {"Negro brillo": {"s": 21, "img": "fotos2/mini-frunce-engomada-1d9sy-negrobrillo.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini voladitos con strass", "desc": "Lycra con strass.", "price": 15500, "colors": ["Azul marino", "Chocolate"], "v": {"Azul marino": {"s": 14, "img": "fotos2/mini-voladitos-lycra-strass-k0-azulmarino.jpg"}, "Chocolate": {"s": 15, "img": "fotos2/mini-voladitos-lycra-strass-k0-chocolate.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini con aplique strass", "desc": "Lycra con strass.", "price": 16000, "colors": ["Marino", "Chocolate"], "v": {"Marino": {"s": 19, "img": "fotos2/mini-con-aplique-lycra-strass--marino.jpg"}, "Chocolate": {"s": 15, "img": "fotos2/mini-con-aplique-lycra-strass--chocolate.jpg"}}}, {"cat": "Minis y shorts", "name": "Mini con tachas", "desc": "Lycra.", "price": 16000, "colors": ["Único"], "v": {"Único": {"s": 15, "img": "fotos2/mini-lycra-tachas-16mxg-unico.jpg"}}}, {"cat": "Minis y shorts", "name": "Short con tachas", "desc": "Lycra.", "price": 16000, "colors": ["Único"], "v": {"Único": {"s": 16, "img": "fotos2/short-lycra-tachas-11zod-unico.jpg"}}}, {"cat": "Pantalones", "name": "Babucha con lazo", "desc": "Bengalina elastizada.", "price": 18000, "colors": ["Militar", "Beige"], "v": {"Militar": {"s": 6, "img": "fotos2/babucha-con-lazo-bengalina-ela-militar.jpg"}, "Beige": {"s": 9, "img": "fotos2/babucha-con-lazo-bengalina-ela-beige.jpg"}}}];
+const money = n => "$" + n.toLocaleString("es-AR");
+const sel = PRODUCTS.map(p => p.colors[0]);
+let bag = [];
+let cat = "Todo";
+let query = "";
+const norm = s => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
+
+function shade(hex){ // darker tone for the photo gradient
+  const n=parseInt(hex.slice(1),16),r=n>>16,g=n>>8&255,b=n&255,f=.72;
+  return `rgb(${r*f|0},${g*f|0},${b*f|0})`;
+}
+function colorOf(c){if(COLORS[c])return COLORS[c];const first=c.split(" con ")[0];return COLORS[first]||COLORS[c.split(" ")[0]]||"#a88a92";}
+function photoBg(c){const h=colorOf(c);return `linear-gradient(160deg, ${h} 0%, ${shade(h)} 100%)`;}
+
+function renderFilters(){
+  const cats=["Todo",...new Set(PRODUCTS.map(p=>p.cat))];
+  const nav=document.getElementById("filters");
+  nav.innerHTML="";
+  cats.forEach(c=>{
+    const b=document.createElement("button");
+    b.type="button";b.textContent=c;b.setAttribute("aria-pressed",c===cat);
+    b.onclick=()=>{cat=c;renderFilters();renderGrid();};
+    nav.appendChild(b);
+  });
+}
+
+function inBag(i,c){return bag.filter(b=>b.i===i&&b.color===c).length;}
+function renderGrid(){
+  const g=document.getElementById("grid");
+  g.innerHTML="";
+  let shown=0;
+  PRODUCTS.forEach((p,i)=>{
+    if(cat!=="Todo"&&p.cat!==cat)return;
+    if(query&&!norm(p.name+" "+p.desc+" "+p.colors.join(" ")).includes(query))return;
+    shown++;
+    const c=sel[i], v=p.v[c], left=v.s-inBag(i,c);
+    const card=document.createElement("article");
+    card.className="card";
+    const stockTxt = left<=0 ? "Sin más unidades de este color" : (left<=3 ? `¡Últimas ${left} unidades!` : `${left} unidades disponibles`);
+    card.innerHTML=`
+      <div class="photo"><img src="${v.img}" alt="${p.name} color ${c}" loading="lazy"></div>
+      <h3>${p.name}</h3>
+      <p class="desc">${p.desc}</p>
+      <div class="price">${money(p.price)}</div>
+      <div class="chips" role="group" aria-label="Color"></div>
+      <p class="stock${left<=3?" low":""}">${c==="Único"?"":"Color "+c+" · "}${stockTxt}</p>
+      <button class="add" type="button"${left<=0?" disabled":""}>Agregar al pedido</button>`;
+    const chips=card.querySelector(".chips");
+    if(p.colors.length===1&&p.colors[0]==="Único"){chips.innerHTML='<span class="one">Color único</span>';}
+    else p.colors.forEach(col=>{
+      const b=document.createElement("button");
+      b.type="button";b.className="chip";b.setAttribute("aria-pressed",c===col);
+      b.innerHTML=`<i style="background:${colorOf(col)}"></i>${col} <small>(${p.v[col].s})</small>`;
+      b.onclick=()=>{sel[i]=col;renderGrid();};
+      chips.appendChild(b);
+    });
+    card.querySelector(".add").onclick=()=>{if(p.v[c].s-inBag(i,c)>0){bag.push({i,color:c});renderBag();renderGrid();}};
+    g.appendChild(card);
+  });
+  document.getElementById("count").textContent=shown+(shown===1?" prenda":" prendas");
+}
+function renderBag(){
+  const list=document.getElementById("bagList"),txt=document.getElementById("bagText"),send=document.getElementById("send");
+  list.innerHTML="";
+  if(!bag.length){
+    txt.textContent="Tu pedido está vacío.";
+    send.setAttribute("aria-disabled","true");send.href="https://wa.me/"+WA;return;
+  }
+  const total=bag.reduce((s,b)=>s+PRODUCTS[b.i].price,0);
+  txt.innerHTML=`${bag.length} ${bag.length===1?"prenda":"prendas"} · <strong>${money(total)}</strong>`;
+  bag.forEach((b,k)=>{
+    const li=document.createElement("li");
+    li.innerHTML=`${PRODUCTS[b.i].name} (${b.color})`;
+    const x=document.createElement("button");x.type="button";x.textContent="×";x.setAttribute("aria-label","Quitar");
+    x.onclick=()=>{bag.splice(k,1);renderBag();renderGrid();};
+    li.appendChild(x);list.appendChild(li);
+  });
+  const lines=bag.map(b=>`• ${PRODUCTS[b.i].name} – ${b.color} – ${money(PRODUCTS[b.i].price)}`);
+  const msg=`¡Hola Elizabeth! Quiero hacer este pedido:\n${lines.join("\n")}\nTotal: ${money(total)}`;
+  send.href="https://wa.me/"+WA+"?text="+encodeURIComponent(msg);
+  send.setAttribute("aria-disabled","false");
+}
+
+document.getElementById("q").addEventListener("input",e=>{query=norm(e.target.value.trim());renderGrid();});
+// Cuenta regresiva (hora Argentina, UTC-3)
+const CIERRE_HORA=20, LLEGADA_HORA=10, H=3600e3, D=24*H;
+function cycle(){const now=Date.now();const art=new Date(now-3*H);
+ const add=(6-art.getUTCDay()+7)%7;
+ let close=Date.UTC(art.getUTCFullYear(),art.getUTCMonth(),art.getUTCDate()+add,CIERRE_HORA+3);
+ if(close<=now)close+=7*D;
+ const arrive=close-(CIERRE_HORA-LLEGADA_HORA)*H+7*D;
+ return {now,close,arrive,ship:arrive+2*D};}
+const fmt=t=>{const d=new Date(t-3*H);return d.getUTCDate()+"/"+(d.getUTCMonth()+1);};
+function cdHTML(ms){ms=Math.max(0,ms);const d=Math.floor(ms/D),h=Math.floor(ms%D/H),m=Math.floor(ms%H/60e3),s=Math.floor(ms%60e3/1e3);
+ return [[d,"días"],[h,"horas"],[m,"min"],[s,"seg"]].map(([v,l])=>`<div><b>${String(v).padStart(2,"0")}</b><small>${l}</small></div>`).join("");}
+function tick(){const c=cycle();
+ document.getElementById("cd1").innerHTML=cdHTML(c.close-c.now);
+ document.getElementById("cd2").innerHTML=cdHTML(c.arrive-c.now);
+ document.getElementById("cd1-date").textContent="Sábado "+fmt(c.close)+" · "+CIERRE_HORA+" h";
+ document.getElementById("cd2-date").textContent="Sábado "+fmt(c.arrive)+" (pedidos de esta semana)";
+ document.getElementById("tl1").textContent="Sábado "+fmt(c.close);
+ document.getElementById("tl2").textContent="Sábado "+fmt(c.arrive);
+ document.getElementById("tl3").textContent="Lunes "+fmt(c.ship);}
+tick();setInterval(tick,1000);
+function showTab(t){if(!["catalogo","pedidos","cambios"].includes(t))t="catalogo";
+ ["catalogo","pedidos","cambios"].forEach(k=>{document.getElementById("tab-"+k).hidden=(k!==t);});
+ document.querySelectorAll(".tabs a").forEach(a=>{if(a.dataset.tab===t)a.setAttribute("aria-current","page");else a.removeAttribute("aria-current");});
+ document.getElementById("bag").hidden=(t!=="catalogo");}
+document.querySelectorAll(".tabs a").forEach(a=>a.addEventListener("click",e=>{e.preventDefault();showTab(a.dataset.tab);window.scrollTo(0,0);}));
+showTab((location.hash||"").slice(1));
+renderFilters();renderGrid();renderBag();
+</script>
+
+</body>
+</html>
